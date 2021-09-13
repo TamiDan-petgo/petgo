@@ -1,0 +1,7 @@
+{
+  "name": "UI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

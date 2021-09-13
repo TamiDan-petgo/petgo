@@ -1,0 +1,30 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/UI/node_modules
+/Core/node_modules
+UI/.pnp
+UI/.pnp.js
+
+# testing
+UI/coverage
+
+# production
+UI/build
+Core/dist
+
+# misc
+UI/.DS_Store
+UI/.env.local
+UI/.env.development.local
+UI/.env.test.local
+UI/.env.production.local
+UI/.vscode
+UI/.idea
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional eslint cache
+.eslintcache
