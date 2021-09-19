@@ -1,6 +1,7 @@
-import React, { MutableRefObject, useRef } from 'react'
+import React, { MutableRefObject, useRef, useState, FormEvent } from 'react'
 import './Signup.scss';
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
+import BackgroundContainer from '../BackgroundContainer/BackgroundContainer';
 
 /**
  * Create Component for Signup form.
@@ -10,15 +11,31 @@ export default function Signup() : JSX.Element {
     const emailRef : any = useRef();
     const passwordRef : any = useRef();
     const passwordConfirmationRef : any = useRef();
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const {signup} = useAuth();
 
-    function handleSubmit(e: Event){
+    async function handleSubmit(e: FormEvent<HTMLFormElement>){
         e.preventDefault();
-        signup(emailRef.current.value, passwordRef.current.value);
+        setError('');
+        if(passwordRef.current.value !== passwordConfirmationRef.current.value) {
+            setError("passwords need to be the same!");
+            return;
+        }
+
+            try {
+                setLoading(true);
+                await signup(emailRef.current.value, passwordRef.current.value);
+            }
+            catch(ex : any) {
+                setError(error + "\n" + ex);
+            }
+        setLoading(false);
     }
 
     return (
-        <form className="signup">
+        <form className="signup"
+            onSubmit = {(e) => handleSubmit(e)}>
             <input type="email" 
                 name="email"
                 required 
@@ -30,15 +47,19 @@ export default function Signup() : JSX.Element {
                 required
                 ref={passwordRef}
                 placeholder = "password"
+                onChange = {() => setError('')}
             />
             <input type="password"
                 name="passwordConfirmation"
                 required
                 ref={passwordConfirmationRef}
                 placeholder = "password confirmation"
+                onChange = {() => setError('')}
             />
+            <span id="error">{error}</span>
             <button
                 type="submit"
+                disabled = {loading}
             >
                 Submit
             </button>

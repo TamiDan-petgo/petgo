@@ -1,39 +1,40 @@
-@import '../../style/Variables.scss';
+@import '../../theme/Variables.scss';
 .container {
-background-color: $default-background;
-width: 100%;
-height: 100%;
-overflow: hidden;
-    .half-circle {
-        position: absolute;
-        height: 100vh;
-        width: 130vw;
-        background: $main-gradient;
-        border-radius: 0 0 130vw 130vw;
-        left: -15vw;
-        right: -15vw;
-        margin-left: auto;
-        margin-right: auto;
-        bottom: 40%;
-    }
-
-    .card-wrapper {
-        height: calc( 100% - 60px );
-        width: 100%;
-        position: relative;
-        display: flex;
-        justify-content: space-around;
-
-        .card {
-            margin: 30px;
-            box-shadow: 0 5px 5px $main-shadow-color;
-            height: 100%;
-            width: 100%;
-            min-width: 300px;
-            max-width: 600px;
-            position: relative;
-            background-color: $default-background;
-            padding: 20px;
+    background-color: $default-background;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+        .half-circle {
+            position: absolute;
+            height: 100vh;
+            width: 130vw;
+            background: $main-gradient;
+            border-radius: 0 0 130vw 130vw;
+            left: -15vw;
+            right: -15vw;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 40%;
         }
-    }
+
+        .card-wrapper {
+            height: calc( 100% - 60px );
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+
+            .card {
+                margin: 30px;
+                box-shadow: 0 5px 5px $main-shadow-color;
+                height: 100%;
+                width: 100%;
+                min-width: 300px;
+                max-width: 600px;
+                position: relative;
+                background-color: $default-background;
+                padding: 20px;
+                color: $main-color;
+            }
+        }
 }

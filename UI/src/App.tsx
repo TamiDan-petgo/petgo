@@ -1,7 +1,16 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { AuthProvider } from './contexts/AuthContext';
+
+/** Import Components */
+import BackgroundContainer from './components/BackgroundContainer/BackgroundContainer';
+
+/**Import pages */
 import Home from './pages/Home/Home';
+import SignUp from './pages/SignUp/SignUp';
+import Login from './pages/Login/Login';
+import Registration from './pages/Registration/Registration';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -20,18 +29,30 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
-import './theme/variables.css';
+import './theme/Variables.scss';
+import './style/DefaultStyle.scss';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+        <AuthProvider>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/signup">
+            <SignUp/>
+          </Route>
+          <Route path="/login">
+            <Login/ >
+          </Route>
+          <Route path = "/registration">
+            <Registration/>
+          </Route>
+        </AuthProvider>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
