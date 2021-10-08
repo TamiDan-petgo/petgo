@@ -1,6 +1,7 @@
 import React, { FormEvent, useState, useRef } from 'react'
 import { useHistory } from 'react-router';
 import { AuthProvider, useAuth } from '../../contexts/AuthContext';
+import { TranslationHelper } from '../../Helpers/TranslationHelper';
 
 export default function LoginForm() {
     const [loading, setLoading] = useState(false);

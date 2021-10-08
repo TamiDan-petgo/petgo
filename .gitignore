@@ -19,6 +19,7 @@ UI/.env.test.local
 UI/.env.production.local
 UI/.vscode
 UI/.idea
+backend/private/*
 
 npm-debug.log*
 yarn-debug.log*
