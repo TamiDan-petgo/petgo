@@ -20,7 +20,10 @@ const Home: React.FC = () => {
 function getApiRequest() : void {
   fetch(TranslationHelper.getTranslationUrl('C028B6B0-A9E2-4943-9F8B-B9A5D513CFD4'))
     .then(res => res.text())
-    .then(text => setTest(text));
+    .then(text => setTest(text))
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 useEffect(() => {
@@ -30,8 +33,7 @@ useEffect(() => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <BackgroundContainer>
-          {test}
+        <BackgroundContainer loading={true}>
         </BackgroundContainer>
         </IonContent>
     </IonPage>

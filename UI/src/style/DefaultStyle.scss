@@ -63,3 +63,58 @@ input{
 button {
     @extend %default-button;
 }
+
+%default-link {
+    color: $main-color !important;
+    &:hover {
+        color: $default-highlight-color !important;
+
+        &:active {
+            color: $main-color !important;
+        }
+    } 
+}
+
+a {
+    @extend %default-link;
+}
+
+
+/*overrides of ionic styles*/
+ion-select {
+    height: 2em;
+    border: 1px solid $main-color;
+    box-sizing: border-box;
+
+    &::part(icon) {
+        opacity: 1 !important;
+    }
+}
+
+.alert-wrapper {
+    border-radius: 0 !important;
+    > div {
+        border-color: $main-grey;
+    }
+}
+
+.alert-radio-group, .alert-button-group {
+    button {
+        box-shadow: none;
+
+        &[aria-checked=true]{
+            .alert-radio-icon {
+                border-color: $main-color !important;
+                > .alert-radio-inner {
+                    background-color: $main-color !important;
+                }
+            }
+        }
+
+        &.alert-button {
+            >.alert-button-inner {
+                @extend %default-link;
+            }
+        }
+    }
+}

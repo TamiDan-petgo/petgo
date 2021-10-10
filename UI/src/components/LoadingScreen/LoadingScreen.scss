@@ -1,0 +1,74 @@
+@import '../../theme/Variables.scss';
+
+.loadingScreenWrapper {
+    color: $main-color;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99999;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba($default-background ,0.8);
+    margin: -20px;
+
+    .loadingAnimation {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        flex-direction: row;
+        height: 60px;
+        width: 100%;
+        margin-bottom: 40px;
+
+        > span {
+            display: block;
+            background-color: $main-color;
+            margin: 0 10px;
+            height: 0; 
+            width: 0;
+            border-radius: 50%;
+            align-self: baseline;
+
+            &:nth-child(1) {
+                animation: bounce-container1 1s infinite alternate;
+            }
+
+            &:nth-child(2) {
+                background-color: $default-highlight-color;
+                animation: bounce-container2 1.5s infinite alternate;
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(3) {
+                animation: bounce-container3 1s infinite alternate;
+                animation-delay: 0.7s;
+            }
+        }
+    }
+}
+
+@keyframes bounce-container1 {
+    to {
+        width: 20px;
+        height: 20px;
+        transform: translate3d(0, -20px, 0);
+    }
+}
+
+@keyframes bounce-container2 {
+    to {
+        width: 60px;
+        height: 60px;
+        transform: translate3d(0, -60px, 0);
+    }
+}
+
+@keyframes bounce-container3 {
+    to {
+        width: 30px;
+        height: 30px;
+        transform: translate3d(0, -30px, 0);
+    }
+}

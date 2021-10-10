@@ -3,14 +3,10 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { AuthProvider } from './contexts/AuthContext';
 
-/** Import Components */
-import BackgroundContainer from './components/BackgroundContainer/BackgroundContainer';
-
 /**Import pages */
 import Home from './pages/Home/Home';
 import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
-import Registration from './pages/Registration/Registration';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,6 +27,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/Variables.scss';
 import './style/DefaultStyle.scss';
+import Questionaire from './pages/Questionaire/Questionaire';
 
 const App: React.FC = () => (
   <IonApp>
@@ -44,13 +41,13 @@ const App: React.FC = () => (
             <Redirect to="/home" />
           </Route>
           <Route path="/signup">
-            <SignUp/>
+            <SignUp />
           </Route>
           <Route path="/login">
-            <Login/ >
+            <Login/>
           </Route>
-          <Route path = "/registration">
-            <Registration/>
+          <Route path="/questionaire">
+            <Questionaire/>
           </Route>
         </AuthProvider>
       </IonRouterOutlet>
