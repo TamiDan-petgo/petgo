@@ -1,4 +1,6 @@
 import React from 'react'
+import { Translations } from '../../Content/Translations'
+import { TranslationHelper } from '../../Helpers/TranslationHelper';
 import './LoadingScreen.scss';
 
 function LoadingScreen() {
@@ -9,7 +11,7 @@ function LoadingScreen() {
                 <span></span>
                 <span></span>
             </div>
-            <span className="loadingScreenText">Loading...</span>
+            <span className="loadingScreenText">{Translations.loading[TranslationHelper.getLanguage()]}</span>
         </div>
     )
 }

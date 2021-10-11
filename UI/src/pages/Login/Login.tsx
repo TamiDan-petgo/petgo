@@ -1,46 +1,80 @@
 import { IonContent, IonPage } from '@ionic/react';
 import BackgroundContainer from '../../components/BackgroundContainer/BackgroundContainer';
-import LoginForm from '../../components/LoginForm/LoginForm';
-import { useState, useEffect } from 'react'
+import { FormEvent, useState, useEffect, useRef } from 'react'
+import { useAuth } from '../../contexts/AuthContext';
+import { useHistory } from 'react-router';
+import { Translations } from '../../Content/Translations';
 import { TranslationHelper } from '../../Helpers/TranslationHelper';
+import { Link } from 'react-router-dom';
+import { componentOnReady } from '@ionic/core';
+
 /**
  * Create basic Login page for petgo Application.
  * @returns Login Page component
  */
 const Login: React.FC = () => {
-  const [emailPlaceholder, setEmailPlaceholder] = useState('');
-  const [passwordPlaceholder, setPasswordPlaceholder] = useState('');
-  const [loginButton, setLoginButton] = useState('');
-  const [notYetRegistered, setNotYetRegistered] = useState('');
-  const [signupLinkText, setSignupLinkText] = useState('');
-
+  const [initialLoad, setInitialLoad] = useState(true);
   const [loading, setLoading] = useState(true);
+  const[error, setError] = useState('');
+  const emailRef : any = useRef();
+  const passwordRef : any = useRef();
+  const {login} = useAuth();
+  const history = useHistory();
 
-  useEffect(() => {
-      let emailPlaceholderTranslationId = "f36f049b-1b98-4e97-a0cd-777a49e2519f";
-      let passwordPlaceholderTranslationId = "8f900511-9881-44fb-805e-4b5ae04f654b";
-      let loginButton = "8a8b8562-b782-4088-93ca-1e25babdd476";
-      let notYetRegistered = "ba761e6d-54fa-4680-a3d5-b007e209f610";
-      let signUpLinkText = "1e4af000-c68b-42c6-b5a8-5e1d4b0a351b";
-      let translationIDs: string[] = [emailPlaceholderTranslationId, passwordPlaceholderTranslationId, loginButton, notYetRegistered, signUpLinkText];
-      TranslationHelper.getTranslations(translationIDs)
-      .then((translations: {[key: string]: string}) => {
-        setEmailPlaceholder(translations[emailPlaceholderTranslationId]);
-        setPasswordPlaceholder(translations[passwordPlaceholderTranslationId]);
-        setLoginButton(translations[loginButton]);
-        setNotYetRegistered(translations[notYetRegistered]);
-        setSignupLinkText(translations[signUpLinkText]);
-        setLoading(false);
-      }).catch((err: string) => {
-        console.log(err);
-      })
+  useEffect(() => { 
+    if(initialLoad) {
+       setLoading(false);
+       setInitialLoad(false);
+       console.log('useEffect');
+    }
   });
+
+  async function handleSubmit(e : FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+      setError('');
+      try {
+          setLoading(true);
+          await login(emailRef.current.value, passwordRef.current.value);
+          history.push('/');
+      }
+      catch(ex : any) {
+          setError(ex.toString());
+      }
+      setLoading(false);
+  }
 
   return (
     <IonPage>
       <IonContent fullscreen>
         <BackgroundContainer loading={loading}>
-          <LoginForm emailPlaceholder={emailPlaceholder} passwordPlaceholder={passwordPlaceholder} loginButton={loginButton} notYetRegistered={notYetRegistered} signUpLinkText={signupLinkText}/>
+          <form className="login"
+                onSubmit = {(e) => handleSubmit(e)}>
+                    <input
+                        type = "email"
+                        required
+                        placeholder = {Translations.emailPlaceholder[TranslationHelper.getLanguage()]}
+                        ref={emailRef}
+                    />
+                    <input type="password"
+                        required
+                        placeholder = {Translations.passwordPlaceholder[TranslationHelper.getLanguage()]}
+                        ref={passwordRef}
+                        />
+                    <button
+                        type="submit"
+                        name= "sumbit"
+                        disabled = {loading}
+                        onChange = {() => setError('')}
+                        >
+                        {Translations.signIn[TranslationHelper.getLanguage()]}
+                    </button>
+                    <br/>
+                    <span>{error}</span>
+                    <br/>
+                    <span>{Translations.dontHaveAnAccountYet[TranslationHelper.getLanguage()]} 
+                    <Link to="/signup">{Translations.signUp[TranslationHelper.getLanguage()]}</Link>
+                    </span>
+                </form>
         </BackgroundContainer>
         </IonContent>
     </IonPage>

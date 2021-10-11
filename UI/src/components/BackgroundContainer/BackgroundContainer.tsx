@@ -5,6 +5,7 @@ interface ContainerProps {
   loading?: boolean
   children? : React.ReactNode, 
 }
+
 /**
  * Get the backgroubd container and Loading screen
  * @param props properties of BackgroundContainer, loading and children  
