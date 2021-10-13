@@ -10,7 +10,6 @@ import './Questionaire.scss';
 const Questionaire: React.FC = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("submit");
   }
 
   const test: string[] = ["Rosi", "Erna", "Schnief"];

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import { Translations } from '../../Content/Translations';
 import { TranslationHelper } from '../../Helpers/TranslationHelper';
 import { Link } from 'react-router-dom';
-import { componentOnReady } from '@ionic/core';
+import './Login.scss';
 
 /**
  * Create basic Login page for petgo Application.

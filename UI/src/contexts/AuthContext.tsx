@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from '@firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, User, Auth, signOut } from '@firebase/auth';
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../firebase';
 import { FirebaseError } from '@firebase/util';
@@ -80,12 +80,26 @@ export function AuthProvider({ children } : any) {
     }, [])
 
     /**
+     * log out current user
+     */
+    function signout() {
+        const auth: Auth = getAuth();
+        console.log(auth);
+        signOut(auth).then(() => {
+            console.log('logged out successfully')
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    /**
      * returning object 
      */
     const returning : object = {
         currentUser, 
         login,
         signup, 
+        signout,
         isCurrentUser 
     }
     

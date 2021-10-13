@@ -1,5 +1,6 @@
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import './BackgroundContainer.scss';
+import {IonHeader, IonTitle, IonToolbar} from '@ionic/react';
 
 interface ContainerProps {
   loading?: boolean
@@ -12,7 +13,7 @@ interface ContainerProps {
  * @returns Background Container 
  */
 const BackgroundContainer: React.FC<ContainerProps> = ({loading = false, children = null}) => {
-  return (
+  return(
     <div className="container">
         <div className="half-circle">
         </div>

@@ -1,4 +1,6 @@
 @import '../theme/Variables';
+@import '../theme/Inheritance';
+@import './IonicOverride';
 body {
     color: $main-color;
     background-color: $default-background;
@@ -37,8 +39,7 @@ input{
         }
 
         &::placeholder {
-            color: $main-color;
-            opacity: 0.7;
+            @extend %placeholder;
         }
         
 
@@ -89,6 +90,10 @@ ion-select {
     &::part(icon) {
         opacity: 1 !important;
     }
+
+    &::part(placeholder) {
+        @extend %placeholder;
+    }
 }
 
 .alert-wrapper {
@@ -118,3 +123,27 @@ ion-select {
         }
     }
 }
+
+
+/**Custom Scrollbar**/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba($main-color, 0.6); 
+    opacity: 1;
+    position: relative;
+    z-index: 500;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba($main-color, 0.8);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+  }

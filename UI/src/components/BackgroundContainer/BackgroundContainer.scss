@@ -18,18 +18,18 @@
         }
 
         .card-wrapper {
-            height: calc( 100% - 60px );
+            height: calc( 100% - 30px );
             width: 100%;
             position: relative;
             display: flex;
             justify-content: space-around;
 
             .card {
-                margin: 30px;
+                margin: 15px;
                 box-shadow: 0 5px 5px $main-shadow-color;
                 height: 100%;
                 width: 100%;
-                min-width: 300px;
+                min-width: 250px;
                 max-width: 600px;
                 position: relative;
                 background-color: $default-background;
