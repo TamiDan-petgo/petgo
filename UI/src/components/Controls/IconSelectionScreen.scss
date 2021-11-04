@@ -1,0 +1,48 @@
+@import '../../theme/Variables.scss';
+@import '../../theme/Inheritance.scss';
+.optionContainer {
+    margin: 1em 0;
+}
+.option {
+    height: 3em;
+    border-bottom: 1px solid;
+    line-height: 3em;
+    display: flex;
+    cursor: pointer;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    > div {
+        pointer-events: none;
+        user-select: none;
+        
+        &.option-icon {
+            width: 24px;
+            
+            >img {
+                height: 16px;
+                width: 16px;
+            }
+        }
+    }
+
+    &:hover {
+        >.option-label {
+            color: $default-highlight-color;
+        }
+
+        > .option-icon{
+            > img {
+                @extend %filter-to-highlight-color;
+            }
+        } 
+    }
+
+    &.isActive {
+        >.option-label {
+            font-weight: 600;
+        }
+    }
+}

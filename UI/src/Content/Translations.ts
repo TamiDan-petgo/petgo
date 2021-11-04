@@ -51,6 +51,22 @@ export module Translations {
         de: "Registrieren",
         en: "Sign up"
     }
+
+    export const signOut: IDictionary<string> = {
+        de: "Logout", 
+        en: "Sign out"
+    }
+
+    export const next: IDictionary<string> = {
+        de: "Weiter", 
+        en: "next"
+    }
+    //#endregion
+    //#region titles
+    export const GoodToSeeYou : IDictionary<string> = {
+        de: "Schön. dass du da bist!", 
+        en: "Good to see you!"
+    }
     //#endregion
     //#region errorTexts
     export const passowrdsNotEqual: IDictionary<string> = {
@@ -65,7 +81,7 @@ export module Translations {
     }
 
     export const passwordPlaceholder: IDictionary<string> = {
-        de: "Passowort",
+        de: "Passwort",
         en: "Password"
     }
 
@@ -88,6 +104,43 @@ export module Translations {
     export const NonEuropeanCountry: IDictionary<string> = {
         de: "Nicht-EU-Ausland", 
         en: "None European country"
+    }
+    //#endregion
+    //#region pets
+    export const Cat : IDictionary<string> = {
+        de: "Katze", 
+        en: "Cat"
+    }
+
+    export const Dog : IDictionary<string> = {
+        de: "Hund", 
+        en: "Dog"
+    }
+
+    export const Rodent : IDictionary<string> = {
+        de: "Nager", 
+        en: "Rodent"
+    }
+
+    export const Bird : IDictionary<string> = {
+        de: "Vogel", 
+        en: "Bird"
+    }
+
+    export const Other : IDictionary<string> = {
+        de: "Anderes", 
+        en: "Other"
+    }
+    //#endregion
+    //#region questionaire
+    export const HowDoYouInvisionYourNewRoommate: IDictionary<string> = {
+        de: "Wie stellst du dir deinen neuen Mitbewohner vor?", 
+        en: "How do you envision your new roommate?"
+    }
+
+    export const iAmAnOrganization: IDictionary<string> = {
+        de: "Ich bin ein Verein", 
+        en: "I'm an organization"
     }
     //#endregion
 }

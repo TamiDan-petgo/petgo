@@ -6,21 +6,6 @@ body {
     background-color: $default-background;
 }
 
-%default-button {
-    width: 100%;
-    height: 2em;
-    background-color: transparent;
-    color: $main-color;
-    margin: 10px 0;
-    border: 1px solid $main-color;
-    box-shadow: 0 3px 5px $secundary-highlight-color;
-
-    &:active, &:focus {
-        background-color: $default-highlight-color;
-        color: $default-background;
-    }
-}
-
 input{
     &[type='text'], 
     &[type='email'], 
@@ -30,6 +15,8 @@ input{
         border: none;
         border-bottom: 1px solid $main-color;
         color: $main-color;
+        height: 2em;
+        margin: 10px 0;
 
         &:focus, &:focus-within, &:focus-visible {
             border: none;
@@ -63,17 +50,6 @@ input{
 
 button {
     @extend %default-button;
-}
-
-%default-link {
-    color: $main-color !important;
-    &:hover {
-        color: $default-highlight-color !important;
-
-        &:active {
-            color: $main-color !important;
-        }
-    } 
 }
 
 a {

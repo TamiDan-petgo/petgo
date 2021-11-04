@@ -10,3 +10,22 @@
         background-color: yellow;
     }
 }
+
+span.question {
+    font-size: 1.25em;
+    line-height: 1.5em
+}
+
+div.linkNext {
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+}
+
+.fade-in {
+    transition: opacity 1s ease;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}

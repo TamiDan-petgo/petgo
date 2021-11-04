@@ -1,0 +1,35 @@
+@import '../../theme/Variables.scss';
+.petgo-logo {
+    height: 100vh;
+    width: 100vh;
+    max-height: 128px;
+    max-width: 128px;
+    min-height: 32px;
+    min-width: 32px;
+    background-image: $main-gradient;
+    align-self: center;
+    border-radius: 100%;
+    margin: auto;
+}
+.loginScreenWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+
+    > form {
+        display: block;
+    }
+
+    > div.logo-wrapper {
+        height: 30%;
+        align-self: center;
+        display: flex;
+    }
+}
+
+.linkWrapper {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;       
+}

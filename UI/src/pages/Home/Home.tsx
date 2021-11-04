@@ -1,6 +1,8 @@
 import { IonContent, IonPage, IonSelect, IonSelectOption, IonHeader, IonToolbar, IonTitle} from '@ionic/react';
 import BackgroundContainer from '../../components/BackgroundContainer/BackgroundContainer';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import { Translations } from '../../Content/Translations';
+import { TranslationHelper } from '../../Helpers/TranslationHelper';
 import './Home.scss';
 
 import { useAuth } from '../../contexts/AuthContext';
@@ -19,8 +21,8 @@ const Home: React.FC = () => {
     <IonPage>
       <PageHeader title="Home"/>
       <IonContent fullscreen>
-        <BackgroundContainer>
-          <button onClick={() => {logout()}}>Logout</button>
+        <BackgroundContainer circleOnTop={true}>
+          <button onClick={() => {logout()}}>{Translations.signOut[TranslationHelper.getLanguage()]}</button>
         </BackgroundContainer>
         </IonContent>
     </IonPage>

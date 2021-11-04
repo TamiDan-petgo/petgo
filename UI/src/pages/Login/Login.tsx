@@ -46,8 +46,12 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <BackgroundContainer loading={loading}>
-          <form className="login"
+        <BackgroundContainer loading={loading} circleOnTop= {true}>
+          <div className="loginScreenWrapper">
+            <div className="logo-wrapper">
+              <div className="petgo-logo"></div>
+            </div>
+            <form className="login"
                 onSubmit = {(e) => handleSubmit(e)}>
                     <input
                         type = "email"
@@ -71,10 +75,11 @@ const Login: React.FC = () => {
                     <br/>
                     <span>{error}</span>
                     <br/>
-                    <span>{Translations.dontHaveAnAccountYet[TranslationHelper.getLanguage()]} 
+                    <span className="linkWrapper">{Translations.dontHaveAnAccountYet[TranslationHelper.getLanguage()]} 
                     <Link to="/signup">{Translations.signUp[TranslationHelper.getLanguage()]}</Link>
                     </span>
                 </form>
+          </div>
         </BackgroundContainer>
         </IonContent>
     </IonPage>

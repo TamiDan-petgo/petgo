@@ -4,17 +4,54 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-        .half-circle {
-            position: absolute;
-            height: 100vh;
-            width: 130vw;
-            background: $main-gradient;
-            border-radius: 0 0 130vw 130vw;
-            left: -15vw;
-            right: -15vw;
-            margin-left: auto;
-            margin-right: auto;
+
+    .half-circle {
+        position: absolute;
+        height: 100vh;
+        width: 130vw;
+        background: $main-gradient;
+        left: -15vw;
+        right: -15vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.circleOnTop {
+        .half-circle{
             bottom: 40%;
+            border-radius: 0 0 130vw 130vw;
+        }
+    }
+
+    &:not(.circleOnTop){
+        .half-circle{
+            top: 20%;
+            border-radius: 100% 100% 0 0;
+            height: 80vh;
+        }
+    }
+
+        .headline {
+            height: 15%;
+            max-height: 100px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px 0;
+
+            >span {
+                display: block;
+                color: $main-color;
+                margin: 0 15px;
+
+                &.title {
+                    font-size: 2.5em;
+                }
+
+                &.subtitle {
+                    font-size: 1.5em;
+                }
+            }
         }
 
         .card-wrapper {
@@ -26,7 +63,7 @@
 
             .card {
                 margin: 15px;
-                box-shadow: 0 5px 5px $main-shadow-color;
+                box-shadow: 0 5px 10px $main-shadow-color;
                 height: 100%;
                 width: 100%;
                 min-width: 250px;
