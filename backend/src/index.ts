@@ -16,7 +16,7 @@ const app: Application = express();
 app.use(compression());
 
 app.get("/info", (req: express.Request, res: express.Response) => {
-  res.send({ app: "petgo", status: "ok", version: "0.0.1"  });
+  res.send({ app: "petgo", status: "ok", version: "0.0.1" });
 });
 
 app.listen(port, async () => {
