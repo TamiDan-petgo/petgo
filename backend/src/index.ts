@@ -15,7 +15,7 @@ const app: Application = express();
 // compress all responses
 app.use(compression());
 
-app.get("/info", (req, res) => {
+app.get("/info", (req: express.Request, res: express.Response) => {
   res.send({ app: "petgo", status: "ok" });
 });
 
