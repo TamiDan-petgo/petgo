@@ -59,7 +59,12 @@ export module Translations {
 
     export const next: IDictionary<string> = {
         de: "Weiter", 
-        en: "next"
+        en: "Next"
+    }
+
+    export const cutePetsWaiting: IDictionary<string> = {
+        de: "Süße Tiere warten auf dich!", 
+        en: "Cute Pets wating for you!"
     }
     //#endregion
     //#region titles
@@ -141,6 +146,11 @@ export module Translations {
     export const iAmAnOrganization: IDictionary<string> = {
         de: "Ich bin ein Verein", 
         en: "I'm an organization"
+    }
+
+    export const whatDoesYourHomeLookLike: IDictionary<string> = {
+        de: "Wie sieht dein Zuhasue aus?", 
+        en: "What does your home look like?"
     }
     //#endregion
 }
