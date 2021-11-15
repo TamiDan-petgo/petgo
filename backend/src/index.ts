@@ -7,16 +7,20 @@ let indexRouter = require('./routes/IndexRouter');
 let userRouter = require('./routes/UserRouter');
 
 let cors = require("cors");
+const compression = require("compression")
 
 const port: string = process.env.PORT || "9000";
 const app: Application = express();
 
-app.get("/info", (req, res) => {
-  res.send({ app: "petgo", status: "ok" });
+// compress all responses
+app.use(compression());
+
+app.get("/info", (req: express.Request, res: express.Response) => {
+  res.send({ app: "petgo", status: "ok", version: "0.0.1" });
 });
 
 app.listen(port, async () => {
-  console.log("listening on port: " + port);
+  console.log("listening on http://localhost:" + port);
 });
 
 app.use(cors());
