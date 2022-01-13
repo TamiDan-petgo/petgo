@@ -96,6 +96,28 @@ const Questionaire: React.FC = () => {
                     </button>
                   </div>
                   <div className="fadeableContainer" data-index="1" style={{display: 'none'}}>
+                    <span className="question">{Translations.whatDoesYourHomeLookLike[TranslationHelper.getLanguage()]}</span>
+                    <div className="linkNext">
+                      <a onPointerUp={(ev : PointerEvent)=> {fadeToNext(ev)}}>{Translations.next[TranslationHelper.getLanguage()]}</a>
+                    </div>
+                  </div>
+                  <div className="fadeableContainer" data-index="2" style={{display: 'none'}}>
+                    <span className="question">{"new container 2"}</span>
+                    <div className="linkNext">
+                      <a onPointerUp={(ev : PointerEvent)=> {fadeToNext(ev)}}>{Translations.next[TranslationHelper.getLanguage()]}</a>
+                    </div>
+                  </div>
+                  <div className="fadeableContainer" data-index="3" style={{display: 'none'}}>
+                    <span className="question">{"new container 3"}</span>
+                    <div className="linkNext">
+                      <a onPointerUp={(ev : PointerEvent)=> {fadeToNext(ev)}}>{Translations.next[TranslationHelper.getLanguage()]}</a>
+                    </div>
+                  </div>
+                  <div className="fadeableContainer" data-index="4" style={{display: 'none'}}>
+                    <span className="question">{"new container 4"}</span>
+                    <div className="linkNext">
+                      <a onPointerUp={(ev : PointerEvent)=> {fadeToNext(ev)}}>{Translations.cutePetsWaiting[TranslationHelper.getLanguage()]}</a>
+                    </div>
                   </div>
                 </form>
             </div>
